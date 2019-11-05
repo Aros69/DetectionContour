@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TP1_AnalyseImage"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP1.exe">
+				<Option output="/home/robin/Master/AI/TP1/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/usr/local/include/opencv4"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 TP1.exe"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TP1.exe/fast">
+				<Option output="/home/robin/Master/AI/TP1/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/usr/local/include/opencv4"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 TP1.exe/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OpenCvImgDisplay.exe">
+				<Option output="/home/robin/Master/AI/TP1/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/usr/local/include/opencv4"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OpenCvImgDisplay.exe/fast">
+				<Option output="/home/robin/Master/AI/TP1/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/usr/local/include/opencv4"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/robin/Master/AI/TP1/main.cpp">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/Computations.cpp">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/Computations.h">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/imageDisplay.cpp">
+			<Option target="OpenCvImgDisplay.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/utils/Matrix.cpp">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/utils/Matrix.h">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/utils/MatrixFilter.cpp">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/src/utils/MatrixFilter.h">
+			<Option target="TP1.exe"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
