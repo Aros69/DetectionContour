@@ -8,141 +8,141 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option working_dir="/home/robin/Master/AI/DetectionContour"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option working_dir="/home/robin/Master/AI/DetectionContour"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/robin/Master/AI/TP1"/>
+				<Option working_dir="/home/robin/Master/AI/DetectionContour"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="TP1.exe">
-				<Option output="/home/robin/Master/AI/TP1/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/robin/Master/AI/DetectionContour/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/home/robin/Master/AI/DetectionContour/src"/>
 					<Add directory="/usr/local/include/opencv4"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 TP1.exe"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 TP1.exe"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="TP1.exe/fast">
-				<Option output="/home/robin/Master/AI/TP1/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/robin/Master/AI/DetectionContour/bin/TP1.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/home/robin/Master/AI/DetectionContour/src"/>
 					<Add directory="/usr/local/include/opencv4"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 TP1.exe/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 TP1.exe/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OpenCvImgDisplay.exe">
-				<Option output="/home/robin/Master/AI/TP1/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/robin/Master/AI/DetectionContour/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/home/robin/Master/AI/DetectionContour/src"/>
 					<Add directory="/usr/local/include/opencv4"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OpenCvImgDisplay.exe/fast">
-				<Option output="/home/robin/Master/AI/TP1/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/robin/Master/AI/DetectionContour/bin/OpenCvImgDisplay.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/robin/Master/AI/TP1/src"/>
+					<Add directory="/home/robin/Master/AI/DetectionContour/src"/>
 					<Add directory="/usr/local/include/opencv4"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/TP1/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 OpenCvImgDisplay.exe/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/robin/Master/AI/DetectionContour/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/robin/Master/AI/TP1/main.cpp">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/main.cpp">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/Computations.cpp">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/Computations.cpp">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/Computations.h">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/Computations.h">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/imageDisplay.cpp">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/imageDisplay.cpp">
 			<Option target="OpenCvImgDisplay.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/utils/Matrix.cpp">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/utils/Matrix.cpp">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/utils/Matrix.h">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/utils/Matrix.h">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/utils/MatrixFilter.cpp">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/utils/MatrixFilter.cpp">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/src/utils/MatrixFilter.h">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/src/utils/MatrixFilter.h">
 			<Option target="TP1.exe"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/CMakeLists.txt">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/../../../../../usr/local/lib/cmake/opencv4/OpenCVConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
-		<Unit filename="/home/robin/Master/AI/TP1/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
+		<Unit filename="/home/robin/Master/AI/DetectionContour/../../../../../usr/local/lib/cmake/opencv4/OpenCVModules.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\opencv4\"/>
 		</Unit>
 	</Project>

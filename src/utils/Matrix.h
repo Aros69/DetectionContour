@@ -34,6 +34,8 @@ public:
 
   double getMatrixValue(unsigned int _row, unsigned int _column) const;
 
+  double getValueOfQuantileX(int quantile) const;
+
   double max() const;
 
   double min() const;

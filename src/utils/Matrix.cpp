@@ -51,6 +51,28 @@ double Matrix::getMatrixValue(unsigned int _row, unsigned int _column) const {
   }
 }
 
+double Matrix::getValueOfQuantileX(int quantile) const {
+  int resolution = nbRow() * nbCol();
+  std::vector<int> values(floor(max() + 1), 0);
+  if (quantile >= 100) {
+    quantile = 50;
+  }
+  int nbOfValueToSkip = double(resolution * quantile) / 100.0;
+  double thresholdValue = 0;
+  // Define Threshold Value
+  for (int i = 0; i < nbRow(); ++i) {
+    for (int j = 0; j < nbCol(); ++j) {
+      values[floor(getMatrixValue(i, j))]++;
+    }
+  }
+  int cpt = 0, i = 0;
+  while (cpt < nbOfValueToSkip && i < floor(max() + 1)) {
+    cpt += values[i];
+    ++i;
+  }
+  return i;
+}
+
 double Matrix::max() const {
   double res = MINDOUBLE;
   for (int i = 0; i < row; ++i) {

@@ -14,4 +14,5 @@
 
 ## Remarques
 - Le développement et les test on été réalisé sur Debian 9.0 avec l'IDE CLion et le compilateur gcc. Pour des résultat optimaux, il est conseillé de se rapprocher le plus possible de cette configuration.
-- En cas de question ou de problèmes, merci de me contacter par mail : "robin.donnay@etu.univ-lyon1.fr"
+- Le contenu de ce projet est expliqué dans le fichier "Rapport TP1 Analyse d’Image.pdf".
+- En cas de question ou de problèmes, merci de me contacter par mail : "robin.donnay@etu.univ-lyon1.fr".

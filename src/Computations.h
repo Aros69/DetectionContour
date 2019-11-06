@@ -16,11 +16,13 @@ public:
   convolve_2d_quadridirectionnal(const Matrix &matrix, const MatrixFilter &filter1,
                                  const MatrixFilter &filter2);
 
-  static Matrix postTGlobalThreshold(const Matrix &matrix, int quantileValue);
+  static Matrix postTGlobalThreshold(const Matrix &matrix, int quantile);
 
-  static Matrix postTLocalThreshold(const Matrix &matrix, unsigned int neighborhoodSize);
+  static Matrix postTLocalThreshold(const Matrix &matrixn, int quantile);
 
-  static Matrix postTHysteresisThreshold(const Matrix &matrix);
+  static Matrix postTHysteresisThreshold(const Matrix &matrix, int quantile);
+
+  static Matrix edgeRefinement(std::vector<Matrix *> matrixes);
 };
 
 #endif //TP1_ANALYSEIMAGE_COMPUTATIONS_H

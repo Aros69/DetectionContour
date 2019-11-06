@@ -1,4 +1,5 @@
 #include <iostream>
+#include <values.h>
 #include "Computations.h"
 
 Matrix
@@ -67,27 +68,9 @@ std::vector<Matrix *> Computations::convolve_2d_quadridirectionnal(const Matrix 
   return res;
 }
 
-Matrix Computations::postTGlobalThreshold(const Matrix &matrix, int quantileValue) {
+Matrix Computations::postTGlobalThreshold(const Matrix &matrix, int quantile) {
   Matrix res(matrix.nbRow(), matrix.nbCol());
-  std::vector<int> values(floor(matrix.max() + 1), 0);
-  int resolution = matrix.nbRow() * matrix.nbCol();
-  if(quantileValue>=100){
-    quantileValue = 85;
-  }
-  int nbOfValueToSkip = double(resolution * quantileValue) / 100.0;
-  double thresholdValue = 0;
-  // Define Threshold Value
-  for (int i = 0; i < res.nbRow(); ++i) {
-    for (int j = 0; j < res.nbCol(); ++j) {
-      values[floor(matrix.getMatrixValue(i, j))]++;
-    }
-  }
-  int cpt = 0, i = 0;
-  while (cpt < nbOfValueToSkip && i < floor(matrix.max() + 1)) {
-    cpt+=values[i];
-    ++i;
-  }
-  thresholdValue = i;
+  double thresholdValue = matrix.getValueOfQuantileX(quantile);
   // Computation of the post treatment
   for (int i = 0; i < res.nbRow(); ++i) {
     for (int j = 0; j < res.nbCol(); ++j) {
@@ -102,8 +85,197 @@ Matrix Computations::postTGlobalThreshold(const Matrix &matrix, int quantileValu
 }
 
 Matrix
-Computations::postTLocalThreshold(const Matrix &matrix, unsigned int neighborhoodSize) {
-
+Computations::postTLocalThreshold(const Matrix &matrix, int quantile) {
+  Matrix res(matrix.nbRow(), matrix.nbCol());
+  // Computation of the post treatment
+  for (int i = 0; i < res.nbRow(); ++i) {
+    for (int j = 0; j < res.nbCol(); ++j) {
+      Matrix *subMat = matrix.createSubMatrix(i - 1, i + 2, j - 1, j + 2);
+      double thresholdValue = subMat->getValueOfQuantileX(quantile);
+      if (matrix.getMatrixValue(i, j) < thresholdValue) {
+        res.setMatrixValue(i, j, 0);
+      } else {
+        res.setMatrixValue(i, j, matrix.getMatrixValue(i, j));
+      }
+      delete (subMat);
+    }
+  }
+  return res;
 }
 
-Matrix Computations::postTHysteresisThreshold(const Matrix &matrix) {}
+Matrix Computations::postTHysteresisThreshold(const Matrix &matrix, int quantile) {
+  Matrix res(matrix.nbRow(), matrix.nbCol());
+  double thresholdMin, thresholdMax;
+  thresholdMax = matrix.getValueOfQuantileX(quantile);
+  thresholdMin = thresholdMax * 0.7;
+  // Computation of the post treatment
+  for (int i = 0; i < res.nbRow(); ++i) {
+    for (int j = 0; j < res.nbCol(); ++j) {
+      if (matrix.getMatrixValue(i, j) < thresholdMin) {
+        res.setMatrixValue(i, j, 0);
+      } else if (matrix.getMatrixValue(i, j) > thresholdMax) {
+        res.setMatrixValue(i, j, matrix.getMatrixValue(i, j));
+      } else {
+        bool hadGoodNeighboor = false;
+        for (int k = i - 1; k <= i + 1; ++k) {
+          for (int l = j - 1; l <= j + 1; ++l) {
+            if (matrix.getMatrixValue(k, l) > thresholdMax) {
+              hadGoodNeighboor = true;
+            }
+          }
+        }
+        if (hadGoodNeighboor) {
+          res.setMatrixValue(i, j, matrix.getMatrixValue(i, j));
+        } else {
+          res.setMatrixValue(i, j, 0);
+        }
+      }
+    }
+  }
+  return res;
+}
+
+Matrix Computations::edgeRefinement(std::vector<Matrix *> matrixes) {
+  Matrix res(matrixes[0]->nbRow(), matrixes[0]->nbCol());
+  for (int i = 0; i < res.nbRow(); ++i) {
+    for (int j = 0; j < res.nbRow(); ++j) {
+      res.setMatrixValue(i, j, 0);
+    }
+  }
+  if (matrixes.size() > 2) {
+    // Gradient en x
+    for (int i = 0; i < matrixes[1]->nbRow(); ++i) {
+      int j = 0;
+      while (j < matrixes[1]->nbCol()) {
+        if (matrixes[1]->getMatrixValue(i, j) != 0) {
+          int indexLocalMax = j;
+          while (j < matrixes[1]->nbCol() && matrixes[1]->getMatrixValue(i, j) != 0) {
+            if (matrixes[1]->getMatrixValue(i, j) >
+                matrixes[1]->getMatrixValue(i, indexLocalMax)) {
+              indexLocalMax = j;
+            }
+            j++;
+          }
+          res.setMatrixValue(i, indexLocalMax, 254.0);
+        }
+        j++;
+      }
+    }
+    // Gradient en y
+    for (int j = 0; j < matrixes[2]->nbCol(); ++j) {
+      int i = 0;
+      while (i < matrixes[2]->nbRow()) {
+        if (matrixes[2]->getMatrixValue(i, j) != 0) {
+          int indexLocalMax = i;
+          while (i < matrixes[2]->nbRow() && matrixes[2]->getMatrixValue(i, j) != 0) {
+            if (matrixes[2]->getMatrixValue(i, j) >
+                matrixes[2]->getMatrixValue(indexLocalMax, j)) {
+              indexLocalMax = i;
+            }
+            i++;
+          }
+          res.setMatrixValue(indexLocalMax, j, 254.0);
+        }
+        i++;
+      }
+    }
+  }
+  if (matrixes.size() > 4) {
+    // Diagonal haut gauche vers bas droite
+    for (int i = 0; i < matrixes[3]->nbRow(); ++i) {
+      int j = 0;
+      int tempI = i;
+      while (j < matrixes[3]->nbCol() && tempI < matrixes[3]->nbRow()) {
+        if (matrixes[3]->getMatrixValue(tempI, j) != 0) {
+          int indexColLocalMax = j;
+          int indexRowLocalMax = tempI;
+          while (j < matrixes[3]->nbCol() && tempI < matrixes[3]->nbRow()
+                 && matrixes[3]->getMatrixValue(tempI, j) != 0) {
+            if (matrixes[3]->getMatrixValue(tempI, j) >
+                matrixes[3]->getMatrixValue(indexRowLocalMax, indexColLocalMax)) {
+              indexColLocalMax = j;
+              indexRowLocalMax = tempI;
+            }
+            j++;
+            tempI++;
+          }
+          res.setMatrixValue(indexRowLocalMax, indexColLocalMax, 254.0);
+        }
+        j++;
+        tempI++;
+      }
+    }
+    for (int j = 0; j < matrixes[3]->nbCol(); ++j) {
+      int tempJ = j;
+      int i = 0;
+      while (tempJ < matrixes[3]->nbCol() && i < matrixes[3]->nbRow()) {
+        if (matrixes[3]->getMatrixValue(i, tempJ) != 0) {
+          int indexColLocalMax = tempJ;
+          int indexRowLocalMax = i;
+          while (tempJ < matrixes[3]->nbCol() && i < matrixes[3]->nbRow()
+                 && matrixes[3]->getMatrixValue(i, tempJ) != 0) {
+            if (matrixes[3]->getMatrixValue(i, tempJ) >
+                matrixes[3]->getMatrixValue(indexRowLocalMax, indexColLocalMax)) {
+              indexColLocalMax = tempJ;
+              indexRowLocalMax = i;
+            }
+            tempJ++;
+            i++;
+          }
+          res.setMatrixValue(indexRowLocalMax, indexColLocalMax, 254.0);
+        }
+        tempJ++;
+        i++;
+      }
+    }
+
+    // Diagonal haut droite vers diagonal bas gauche
+    for (int i = 0; i < matrixes[4]->nbRow(); ++i) {
+      int j = matrixes[4]->nbCol() - 1;
+      int tempI = i;
+      while (j >= 0 && tempI < matrixes[4]->nbRow()) {
+        if (matrixes[4]->getMatrixValue(tempI, j) != 0) {
+          int indexColLocalMax = j;
+          int indexRowLocalMax = tempI;
+          while (j >= 0 && tempI < matrixes[4]->nbRow()
+                 && matrixes[4]->getMatrixValue(tempI, j) != 0) {
+            if (matrixes[4]->getMatrixValue(tempI, j) >
+                matrixes[4]->getMatrixValue(indexRowLocalMax, indexColLocalMax)) {
+              indexColLocalMax = j;
+              indexRowLocalMax = tempI;
+            }
+            j--;
+            tempI++;
+          }
+          res.setMatrixValue(indexRowLocalMax, indexColLocalMax, 254.0);
+        }
+        j--;
+        tempI++;
+      }
+    }
+    for (int j = matrixes[4]->nbCol() - 1; j >= 0; --j) {
+      int tempJ = j;
+      int i = 0;
+      while (tempJ >= 0 && i < matrixes[4]->nbRow()) {
+        if (matrixes[4]->getMatrixValue(i, tempJ) != 0) {
+          int indexColLocalMax = tempJ;
+          int indexRowLocalMax = i;
+          while (tempJ >= 0 && i < matrixes[4]->nbRow()
+                 && matrixes[4]->getMatrixValue(i, tempJ) != 0) {
+            if (matrixes[4]->getMatrixValue(i, tempJ) >
+                matrixes[4]->getMatrixValue(indexRowLocalMax, indexColLocalMax)) {
+              indexColLocalMax = tempJ;
+              indexRowLocalMax = i;
+            }
+            tempJ--;
+            i++;
+          }
+          res.setMatrixValue(indexRowLocalMax, indexColLocalMax, 254.0);
+        }
+        tempJ--;
+        i++;
+      }
+    }
+  }
+  return res;
+}

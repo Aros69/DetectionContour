@@ -8,6 +8,7 @@
 #include "Computations.h"
 
 void meanFilterTest() {
+  std::cout<<"Debut du test de filtre moyenneur. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
   image = imread("data/ExempleSimple.png", cv::IMREAD_GRAYSCALE);
@@ -21,20 +22,11 @@ void meanFilterTest() {
   imshow("Display window", res);
   // Wait for a keystroke in the window
   cv::waitKey(0);
-}
-
-void rotateMatrixTest() {
-  Matrix f(3, 1);
-  f.setMatrixValue(0, 0, 1);
-  f.setMatrixValue(1, 0, 2);
-  f.setMatrixValue(2, 0, 3);
-  f.print();
-
-  Matrix t = f.rotateClockwise90();
-  t.print();
+  std::cout<<"Fin du test de filtre moyenneur "<<std::endl;
 }
 
 void sobelFilterBidirectionnalTest() {
+  std::cout<<"Debut du test de filtre bidirectionnel. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
   //image = imread("data/SmallImg.png", cv::IMREAD_GRAYSCALE);
@@ -55,9 +47,12 @@ void sobelFilterBidirectionnalTest() {
   delete (r[0]);
   delete (r[1]);
   delete (r[2]);
+
+  std::cout<<"Fin du test de filtre bidirectionnel"<<std::endl;
 }
 
 void prewittFilterQuadridirectionnalTest() {
+  std::cout<<"Debut du test de filtre quadri-directionnel. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
   //image = imread("data/SmallImg.png", cv::IMREAD_GRAYSCALE);
@@ -71,8 +66,6 @@ void prewittFilterQuadridirectionnalTest() {
   std::vector<Matrix *> r = Computations::convolve_2d_quadridirectionnal(imTest, m1, m2);
   //cv::Mat res = orientation.convertToOpenCvMat();
   cv::Mat res = r[0]->convertToOpenCvMat();
-  std::cout << r[0]->max() << " " << r[1]->max() << " " << r[2]->max() << " "
-            << r[3]->max() << " " << r[4]->max() << std::endl;
   // Create a window for display.
   namedWindow("Display window", cv::WINDOW_AUTOSIZE);
   // Show our image inside it.
@@ -84,9 +77,12 @@ void prewittFilterQuadridirectionnalTest() {
   delete (r[2]);
   delete (r[3]);
   delete (r[4]);
+
+  std::cout<<"Fin du test de filtre quadridirectionnel"<<std::endl;
 }
 
 void gaussianFilterTest() {
+  std::cout<<"Debut du test de filtre gaussien. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
   image = imread("data/ExempleSimple.png", cv::IMREAD_GRAYSCALE);
@@ -100,9 +96,11 @@ void gaussianFilterTest() {
   imshow("Display window", res);
   // Wait for a keystroke in the window
   cv::waitKey(0);
+  std::cout<<"Fin du test de filtre gaussien"<<std::endl;
 }
 
 void globalThresholdTest() {
+  std::cout<<"Debut du test de seuillage global. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
   image = imread("data/Barbara.png", cv::IMREAD_GRAYSCALE);
@@ -124,17 +122,19 @@ void globalThresholdTest() {
   delete (r[2]);
   delete (r[3]);
   delete (r[4]);
+  std::cout<<"Fin du test de seuillage global"<<std::endl;
 }
 
 void localThresholdTest() {
+  std::cout<<"Debut du test de seuillage local. Appuyer sur une touche pour continuer."<<std::endl;
   cv::Mat image;
   // Read the file
-  image = imread("data/Lenna.png", cv::IMREAD_GRAYSCALE);
+  image = imread("data/Barbara.png", cv::IMREAD_GRAYSCALE);
   Matrix imTest(image);
-  MatrixFilter m1 = MatrixFilter::kirsch(false);
-  MatrixFilter m2 = MatrixFilter::kirsch(true);
-  std::vector<Matrix *> r = Computations::convolve_2d_quadridirectionnal(imTest, m1, m2);
-  Matrix postTreatment = Computations::postTLocalThreshold(*r[0], 5);
+  MatrixFilter m = MatrixFilter::prewitt(false);
+  MatrixFilter m2 = MatrixFilter::prewitt(true);
+  std::vector<Matrix *> r = Computations::convolve_2d_quadridirectionnal(imTest, m, m2);
+  Matrix postTreatment = Computations::postTLocalThreshold(*r[0], 70);
   cv::Mat res = postTreatment.convertToOpenCvMat();
   // Create a window for display.
   namedWindow("Display window", cv::WINDOW_AUTOSIZE);
@@ -148,17 +148,76 @@ void localThresholdTest() {
   delete (r[2]);
   delete (r[3]);
   delete (r[4]);
+
+  std::cout<<"Fin du test de seuillage local"<<std::endl;
+}
+
+void hysteresisThresholdTest() {
+  std::cout<<"Debut du test de seuillage par hystérésis. Appuyer sur une touche pour continuer."<<std::endl;
+  cv::Mat image;
+  // Read the file
+  image = imread("data/Lenna.png", cv::IMREAD_GRAYSCALE);
+  Matrix imTest(image);
+  MatrixFilter m1 = MatrixFilter::kirsch(false);
+  MatrixFilter m2 = MatrixFilter::kirsch(true);
+  std::vector<Matrix *> r = Computations::convolve_2d_quadridirectionnal(imTest, m1, m2);
+  Matrix postTreatment = Computations::postTHysteresisThreshold(*r[0], 90);
+  cv::Mat res = postTreatment.convertToOpenCvMat();
+  // Create a window for display.
+  namedWindow("Display window", cv::WINDOW_AUTOSIZE);
+  // Show our image inside it.
+  imshow("Display window", res);
+  // Wait for a keystroke in the window
+  cv::waitKey(0);
+
+  delete (r[0]);
+  delete (r[1]);
+  delete (r[2]);
+  delete (r[3]);
+  delete (r[4]);
+
+  std::cout<<"Fin du test de seuillage par hysteresis"<<std::endl;
+}
+
+void edgeRefinementTest(){
+  std::cout<<"Debut du test de raffinement de contour. Appuyer sur une touche pour continuer."<<std::endl;
+  cv::Mat image;
+  // Read the file
+  image = imread("data/ExempleSimple.png", cv::IMREAD_GRAYSCALE);
+  Matrix imTest(image);
+  MatrixFilter m1 = MatrixFilter::kirsch(false);
+  MatrixFilter m2 = MatrixFilter::kirsch(true);
+  //std::vector<Matrix *> r = Computations::convolve_2d_quadridirectionnal(imTest, m1, m2);
+  std::vector<Matrix *> r = Computations::convolve_2d_bidirectionnal(imTest, m1);
+  Matrix postTreatment = Computations::edgeRefinement(r);
+  cv::Mat res = postTreatment.convertToOpenCvMat();
+  // Create a window for display.
+  namedWindow("Display window", cv::WINDOW_AUTOSIZE);
+  // Show our image inside it.
+  imshow("Display window", res);
+  // Wait for a keystroke in the window
+  cv::waitKey(0);
+
+  delete (r[0]);
+  delete (r[1]);
+  delete (r[2]);
+  /*delete (r[3]);
+  delete (r[4]);*/
+
+  std::cout<<"Fin du test de raffinement de contour"<<std::endl;
 }
 
 int main() {
   std::cout << "Hello, World!" << std::endl;
 
-  //meanFilterTest();
-  //rotateMatrixTest();
-  //sobelFilterBidirectionnalTest();
-  //prewittFilterQuadridirectionnalTest();
-  //gaussianFilterTest();
+  meanFilterTest();
+  sobelFilterBidirectionnalTest();
+  prewittFilterQuadridirectionnalTest();
+  gaussianFilterTest();
   globalThresholdTest();
+  localThresholdTest();
+  hysteresisThresholdTest();
+  edgeRefinementTest();
 
   std::cout << "Bye, World!" << std::endl;
   return 0;
